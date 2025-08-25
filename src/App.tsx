@@ -8,9 +8,13 @@ function App() {
 
   return (
     <>
+    
+    <div className="container max-w-7xl mx-auto  max-w-5xl p-4 bg-white">
      <Navbar />
      <Outlet />
+    </div>
     </>
+    
   )
 }
 

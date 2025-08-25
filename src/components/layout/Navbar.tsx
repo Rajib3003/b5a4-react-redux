@@ -1,112 +1,55 @@
-import { CircleCheckIcon, CircleHelpIcon, CircleIcon } from "lucide-react"
-import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "../ui/navigation-menu"
-import { Link } from "react-router-dom";
-import { ModeToggle } from "../mode-toggle";
-
-const components: { title: string; href: string; description: string }[] = [
-  {
-    title: "Alert Dialog",
-    href: "/docs/primitives/alert-dialog",
-    description:
-      "A modal dialog that interrupts the user with important content and expects a response.",
-  },
-  {
-    title: "Hover Card",
-    href: "/docs/primitives/hover-card",
-    description:
-      "For sighted users to preview content available behind a link.",
-  },
-  {
-    title: "Progress",
-    href: "/docs/primitives/progress",
-    description:
-      "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
-  },
-  {
-    title: "Scroll-area",
-    href: "/docs/primitives/scroll-area",
-    description: "Visually or semantically separates content.",
-  },
-  {
-    title: "Tabs",
-    href: "/docs/primitives/tabs",
-    description:
-      "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
-  },
-  {
-    title: "Tooltip",
-    href: "/docs/primitives/tooltip",
-    description:
-      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
-  },
-]
+import { useState } from "react"
+import { Link } from "react-router-dom"
+import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuTrigger, NavigationMenuContent, NavigationMenuLink } from "@/components/ui/navigation-menu"
+import { ModeToggle } from "@/components/mode-toggle"
+import { CircleCheckIcon, CircleHelpIcon, CircleIcon, Menu, X } from "lucide-react"
 
 export default function Navbar() {
-    
+  const [mobileOpen, setMobileOpen] = useState(false)
+
   return (
-        <header className="sticky top-0 z-50 bg-white shadow-md">
+    <header className="sticky top-0 z-50 bg-white shadow-md dark:bg-black">
       <div className="max-w-7xl mx-auto flex items-center justify-between h-16 px-5">
-        
-        {/* Logo / Brand */}
-        <Link to="/" className="text-xl font-bold text-blue-600">
+        {/* Logo */}
+        <Link to="/" className="text-xl font-bold text-blue-600 dark:text-white">
           MyWebsite
         </Link>
-  <NavigationMenu viewport={false}>
-      <NavigationMenuList>
-       
-          <NavigationMenuLink asChild>
-            <Link to="/borrow">Borrow</Link>
-          </NavigationMenuLink>
-          
-        
-       
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>Home</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid gap-2 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-              <li className="row-span-3">
+
+        {/* Desktop Menu */}
+        <div className="hidden md:flex">
+          <NavigationMenu viewport={false}>
+            <NavigationMenuList>
+              <NavigationMenuItem>
                 <NavigationMenuLink asChild>
-                  <a
-                    className="from-muted/50 to-muted flex h-full w-full flex-col justify-end rounded-md bg-linear-to-b p-6 no-underline outline-hidden select-none focus:shadow-md"
-                    href="/"
-                  >
-                    <div className="mt-4 mb-2 text-lg font-medium">
-                      shadcn/ui
-                    </div>
-                    <p className="text-muted-foreground text-sm leading-tight">
-                      Beautifully designed components built with Tailwind CSS.
-                    </p>
-                  </a>
+                  <Link to="/borrow">Borrow</Link>
                 </NavigationMenuLink>
-              </li>
-              <ListItem href="/docs" title="Introduction">
-                Re-usable components built using Radix UI and Tailwind CSS.
-              </ListItem>
-              <ListItem href="/docs/installation" title="Installation">
-                How to install dependencies and structure your app.
-              </ListItem>
-              <ListItem href="/docs/primitives/typography" title="Typography">
-                Styles for headings, paragraphs, lists...etc
-              </ListItem>
-            </ul>
-          </NavigationMenuContent>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <NavigationMenuTrigger>Home</NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid gap-2 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                    <li className="row-span-3">
+                      <NavigationMenuLink asChild>
+                        <Link
+                          className="flex h-full w-full flex-col justify-end rounded-md bg-gradient-to-b from-gray-100 to-gray-200 p-6 dark:from-gray-800 dark:to-gray-900 no-underline"
+                          to="/"
+                        >
+                          <div className="mt-4 mb-2 text-lg font-medium">shadcn/ui</div>
+                          <p className="text-muted-foreground text-sm leading-tight">
+                            Beautifully designed components built with Tailwind CSS.
+                          </p>
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+          <NavigationMenuTrigger>Home</NavigationMenuTrigger>
+          
         </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>Components</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid w-[400px] gap-2 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-              {components.map((component) => (
-                <ListItem
-                  key={component.title}
-                  title={component.title}
-                  href={component.href}
-                >
-                  {component.description}
-                </ListItem>
-              ))}
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
+        
         <NavigationMenuItem>
           {/* <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
             <Link to="/docs">Docs</Link>
@@ -190,36 +133,60 @@ export default function Navbar() {
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
-      </NavigationMenuList>
-    </NavigationMenu>
-    {/* Mode Toggle */}
+
+              {/* Add more items as needed */}
+            </NavigationMenuList>
+          </NavigationMenu>
+        </div>
+
+        {/* Mode Toggle */}
         <ModeToggle />
 
-        {/* Mobile Menu Button (optional) */}
+        {/* Mobile Menu Button */}
         <div className="md:hidden">
-          {/* Add hamburger menu here if needed */}
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="p-2 rounded-md border border-gray-300 dark:border-gray-700"
+          >
+            {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
         </div>
-    </div>
+      </div>
+
+      {/* Mobile Menu */}
+      {mobileOpen && (
+        <div className="md:hidden bg-white dark:bg-black shadow-lg p-4">
+          <ul className="flex flex-col gap-4">
+            <li>
+              <Link
+                to="/borrow"
+                onClick={() => setMobileOpen(false)}
+                className="text-lg font-medium text-gray-800 dark:text-gray-200"
+              >
+                Borrow
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/books"
+                onClick={() => setMobileOpen(false)}
+                className="text-lg font-medium text-gray-800 dark:text-gray-200"
+              >
+                Books
+              </Link>
+            </li>
+            {/* <li>
+              <Link
+                to="/components"
+                onClick={() => setMobileOpen(false)}
+                className="text-lg font-medium text-gray-800 dark:text-gray-200"
+              >
+                Components
+              </Link>
+            </li> */}
+          </ul>
+        </div>
+      )}
     </header>
-  )
-}
-function ListItem({
-  title,
-  children,
-  href,
-  ...props
-}: React.ComponentPropsWithoutRef<"li"> & { href: string }) {
-  return (
-    <li {...props}>
-      <NavigationMenuLink asChild>
-        <Link to={href}>
-          <div className="text-sm leading-none font-medium">{title}</div>
-          <p className="text-muted-foreground line-clamp-2 text-sm leading-snug">
-            {children}
-          </p>
-        </Link>
-      </NavigationMenuLink>
-    </li>
-    
   )
 }
