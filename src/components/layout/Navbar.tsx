@@ -53,6 +53,13 @@ export default function Navbar() {
         </Link>
   <NavigationMenu viewport={false}>
       <NavigationMenuList>
+       
+          <NavigationMenuLink asChild>
+            <Link to="/borrow">Borrow</Link>
+          </NavigationMenuLink>
+          
+        
+       
         <NavigationMenuItem>
           <NavigationMenuTrigger>Home</NavigationMenuTrigger>
           <NavigationMenuContent>
@@ -119,7 +126,7 @@ export default function Navbar() {
                   </Link>
                 </NavigationMenuLink>
                 <NavigationMenuLink asChild>
-                  <Link to="#">
+                  <Link to="/books">
                     <div className="font-medium">Documentation</div>
                     <div className="text-muted-foreground">
                       Learn how to use the library.
