@@ -24,11 +24,11 @@ export default function AddBook() {
         }
     })
 
-    const onSubmit:SubmitHandler<FieldValues> = async (data) => {
-        const payload = {
-            ...data,
-            // dueDate: data.dueDate ? format(data.dueDate, "yyyy-MM-dd") : null,
-        }
+    const onSubmit:SubmitHandler<FieldValues> = async () => {
+        // const payload = {
+        //     ...data,
+        //     dueDate: data.dueDate ? format(data.dueDate, "yyyy-MM-dd") : null,
+        // }
         // const res = await createBook(payload);
         form.reset();
         setOpen(false);

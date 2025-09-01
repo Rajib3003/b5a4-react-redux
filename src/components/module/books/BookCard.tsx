@@ -2,7 +2,7 @@
 import { Card, CardAction, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { cn } from '@/lib/utils'
 
-import UpdateBook from './UpdateBook'
+
 
 
 export default function BookCard({book}:any) {
