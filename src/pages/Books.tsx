@@ -25,7 +25,7 @@ export default function Books() {
   return (
     <div>
       Books Page
-      {data?.books?.map((book:any) => (
+      {data?.data?.map((book: any) => (
         <div key={book._id} className="border p-4 mb-4">
           <h2 className="text-xl font-bold">{book.title}</h2>
           <p className="text-gray-600">Author: {book.author}</p>
