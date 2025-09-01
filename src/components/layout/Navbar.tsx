@@ -18,27 +18,30 @@ export default function Navbar() {
         {/* Desktop Menu */}
         <div className="hidden md:flex">
           <NavigationMenu viewport={false}>
-            <NavigationMenuList>
+            <NavigationMenuList>                
               <NavigationMenuItem>
-                <NavigationMenuLink asChild>
-                  <Link to="/borrow">Borrow</Link>
+                <NavigationMenuLink asChild className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded">
+                  <Link to="/"><div className="font-medium">Home</div></Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
-
               <NavigationMenuItem>
-                <NavigationMenuTrigger>Home</NavigationMenuTrigger>
+                <NavigationMenuTrigger>List</NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul className="grid gap-2 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                    <li className="row-span-3">
+                  <ul className="grid w-[200px] gap-4">
+                    <li>
                       <NavigationMenuLink asChild>
-                        <Link
-                          className="flex h-full w-full flex-col justify-end rounded-md bg-gradient-to-b from-gray-100 to-gray-200 p-6 dark:from-gray-800 dark:to-gray-900 no-underline"
-                          to="/"
-                        >
-                          <div className="mt-4 mb-2 text-lg font-medium">shadcn/ui</div>
-                          <p className="text-muted-foreground text-sm leading-tight">
-                            Beautifully designed components built with Tailwind CSS.
-                          </p>
+                        <Link to="/borrow">
+                          <div className="font-medium">Borrow Book</div>   
+                        </Link>
+                      </NavigationMenuLink>
+                      <NavigationMenuLink asChild>
+                        <Link to="/books">
+                          <div className="font-medium">Documentation</div>                  
+                        </Link>
+                      </NavigationMenuLink>
+                      <NavigationMenuLink asChild>
+                        <Link to="#">
+                          <div className="font-medium">Blog</div>                   
                         </Link>
                       </NavigationMenuLink>
                     </li>
@@ -46,94 +49,50 @@ export default function Navbar() {
                 </NavigationMenuContent>
               </NavigationMenuItem>
               <NavigationMenuItem>
-          <NavigationMenuTrigger>Home</NavigationMenuTrigger>
-          
-        </NavigationMenuItem>
-        
-        <NavigationMenuItem>
-          {/* <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link to="/docs">Docs</Link>
-          </NavigationMenuLink> */}
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>List</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid w-[300px] gap-4">
-              <li>
-                <NavigationMenuLink asChild>
-                  <Link to="#">
-                    <div className="font-medium">Components</div>
-                    <div className="text-muted-foreground">
-                      Browse all components in the library.
-                    </div>
-                  </Link>
-                </NavigationMenuLink>
-                <NavigationMenuLink asChild>
-                  <Link to="/books">
-                    <div className="font-medium">Documentation</div>
-                    <div className="text-muted-foreground">
-                      Learn how to use the library.
-                    </div>
-                  </Link>
-                </NavigationMenuLink>
-                <NavigationMenuLink asChild>
-                  <Link to="#">
-                    <div className="font-medium">Blog</div>
-                    <div className="text-muted-foreground">
-                      Read our latest blog posts.
-                    </div>
-                  </Link>
-                </NavigationMenuLink>
-              </li>
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>Simple</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid w-[200px] gap-4">
-              <li>
-                <NavigationMenuLink asChild>
-                  <Link to="#">Components</Link>
-                </NavigationMenuLink>
-                <NavigationMenuLink asChild>
-                  <Link to="#">Documentation</Link>
-                </NavigationMenuLink>
-                <NavigationMenuLink asChild>
-                  <Link to="#">Blocks</Link>
-                </NavigationMenuLink>
-              </li>
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>With Icon</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid w-[200px] gap-4">
-              <li>
-                <NavigationMenuLink asChild>
-                  <Link to="#" className="flex-row items-center gap-2">
-                    <CircleHelpIcon />
-                    Backlog
-                  </Link>
-                </NavigationMenuLink>
-                <NavigationMenuLink asChild>
-                  <Link to="#" className="flex-row items-center gap-2">
-                    <CircleIcon />
-                    To Do
-                  </Link>
-                </NavigationMenuLink>
-                <NavigationMenuLink asChild>
-                  <Link to="#" className="flex-row items-center gap-2">
-                    <CircleCheckIcon />
-                    Done
-                  </Link>
-                </NavigationMenuLink>
-              </li>
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-
+                <NavigationMenuTrigger>Simple</NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid w-[200px] gap-4">
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link to="#">Components</Link>
+                      </NavigationMenuLink>
+                      <NavigationMenuLink asChild>
+                        <Link to="#">Documentation</Link>
+                      </NavigationMenuLink>
+                      <NavigationMenuLink asChild>
+                        <Link to="#">Blocks</Link>
+                      </NavigationMenuLink>
+                    </li>
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuTrigger>With Icon</NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid w-[200px] gap-4">
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link to="#" className="flex-row items-center gap-2">
+                          <CircleHelpIcon />
+                          Backlog
+                        </Link>
+                      </NavigationMenuLink>
+                      <NavigationMenuLink asChild>
+                        <Link to="#" className="flex-row items-center gap-2">
+                          <CircleIcon />
+                          To Do
+                        </Link>
+                      </NavigationMenuLink>
+                      <NavigationMenuLink asChild>
+                        <Link to="#" className="flex-row items-center gap-2">
+                          <CircleCheckIcon />
+                          Done
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
               {/* Add more items as needed */}
             </NavigationMenuList>
           </NavigationMenu>
