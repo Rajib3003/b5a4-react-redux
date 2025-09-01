@@ -31,6 +31,7 @@ export default function Books() {
           <p className="text-gray-600">Author: {book.author}</p>
           <p className="text-gray-600">Genre: {book.genre}</p>
           <p className="text-gray-600">Published Year: {book.publishedYear}</p>
+          <p className="text-gray-600">Published Year: {book.copies}</p>
         </div>
       ))}
     </div>
