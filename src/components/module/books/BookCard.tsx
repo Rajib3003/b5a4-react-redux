@@ -1,6 +1,6 @@
 
 import { Button } from '@/components/ui/button'
-import { Card, CardAction, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardAction, CardContent, CardHeader } from '@/components/ui/card'
 
 import { useDeleteBookMutation } from '@/redux/api/baseApi'
 // import { useAppDispatch } from '@/redux/hook'
@@ -29,8 +29,7 @@ export default function BookCard({book}:{book:IBook}) {
             <UpdateBook book={book} /> 
             <Button onClick={() => deleteBook(book._id)} variant="link" className="p-0 text-red-500  cursor-pointer" >
               <Trash2  />            
-            </Button>      
-            
+            </Button>            
           </CardAction>
         </CardHeader>
         <CardContent>
