@@ -83,7 +83,7 @@ const onSubmit: SubmitHandler<BookFormValues> = async (data) => {
       <Dialog open={open} onOpenChange={handleOpen}>
       
         <DialogTrigger asChild>
-          <Button  variant="link" className="p-0 text-green-500">            
+          <Button  variant="link" className="p-0 text-green-500  cursor-pointer">            
             <RefreshCw />
           </Button>
         </DialogTrigger>

@@ -8,12 +8,24 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 bg-white shadow-md dark:bg-black">
-      <div className="max-w-7xl mx-auto flex items-center justify-between h-20 px-5">
-        {/* Logo */}
-        <Link to="/" className="text-xl font-bold text-blue-600 dark:text-white">
-          MyWebsite
-        </Link>
+    // <header className="sticky top-0 z-50 bg-white shadow-md dark:bg-black">
+    //   <div className="max-w-7xl mx-auto flex items-center justify-between h-20 px-5">
+        
+    //     <Link to="/" className="text-xl font-bold text-blue-600 dark:text-white">
+    //       MyWebsite
+    //     </Link>
+
+    <header className="sticky top-0 z-50 w-full bg-white shadow-md dark:bg-black">
+  {/* Full width background */}
+
+  <div className="max-w-7xl mx-auto flex items-center justify-between h-20 px-5">
+    {/* Logo */}
+    <Link
+      to="/"
+      className="text-xl font-bold text-blue-600 dark:text-white"
+    >
+      MyWebsite
+    </Link>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex">
