@@ -6,6 +6,7 @@ import { useDeleteBookMutation } from '@/redux/api/baseApi'
 // import { useAppDispatch } from '@/redux/hook'
 import type { IBook } from '@/types'
 import { Trash2 } from 'lucide-react'
+import UpdateBook from './UpdateBook'
 // import { deleteBook } from '@/redux/features/books/bookSlice'
 
 
@@ -47,7 +48,7 @@ export default function BookCard({book}:{book:IBook}) {
           <Button onClick={() => deleteBook(book._id)} variant="link" className="p-0 text-red-500">
             <Trash2  />            
           </Button>      
-            {/* <UpdateBook />  */}
+            <UpdateBook book={book} /> 
         </CardAction>
       </CardHeader>
       <CardContent>
