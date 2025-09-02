@@ -4,6 +4,7 @@ import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, Di
 import { Form, FormControl, FormField, FormItem, FormLabel } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
+import type { IBook } from '@/types'
 
 import { useState } from 'react'
 import { useForm, type FieldValues, type SubmitHandler } from 'react-hook-form'
@@ -24,12 +25,20 @@ export default function AddBook() {
         }
     })
 
-    const onSubmit:SubmitHandler<FieldValues> = async () => {
-        // const payload = {
-        //     ...data,
-        //     dueDate: data.dueDate ? format(data.dueDate, "yyyy-MM-dd") : null,
-        // }
-        // const res = await createBook(payload);
+    const onSubmit:SubmitHandler<FieldValues> = async (data) => {
+        const payload = {
+            ...data,
+            
+        }
+        const res = await fetch("https://typescript-express-mongo-db.vercel.app/api/books", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload)
+        });
+        const result = await res.json();
+        console.log("Success:", result);
         form.reset();
         setOpen(false);
     }

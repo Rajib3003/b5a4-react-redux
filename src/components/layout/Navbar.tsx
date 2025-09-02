@@ -9,7 +9,7 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 bg-white shadow-md dark:bg-black">
-      <div className="max-w-7xl mx-auto flex items-center justify-between h-16 px-5">
+      <div className="max-w-7xl mx-auto flex items-center justify-between h-20 px-5">
         {/* Logo */}
         <Link to="/" className="text-xl font-bold text-blue-600 dark:text-white">
           MyWebsite
