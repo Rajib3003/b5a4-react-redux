@@ -11,6 +11,7 @@ import { useUpdateBookMutation } from "@/redux/api/baseApi";
 import type { IBook } from "@/types";
 
 import { RefreshCw } from "lucide-react";
+import { useState } from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
 
   interface IProps {
@@ -28,6 +29,7 @@ interface BookFormValues {
 }
 
 export default function UpdateBook({book}:IProps) {
+  const [open, setOpen] = useState(false);
   // const dispatch = useAppDispatch();
   
   const form = useForm<BookFormValues>({
@@ -43,6 +45,21 @@ export default function UpdateBook({book}:IProps) {
     
     
 })
+const handleOpen = (value: boolean) => {
+  setOpen(value);
+  if (value) {
+    form.reset({
+      title: book.title,
+      author: book.author,
+      genre: book.genre,
+      isbn: book.isbn,
+      copies: book.copies,
+      description: book.description,
+      available: book.available,
+    });
+  }
+};
+
 const [updateBook] = useUpdateBookMutation();
 
 const onSubmit: SubmitHandler<BookFormValues> = async (data) => {
@@ -54,6 +71,7 @@ const onSubmit: SubmitHandler<BookFormValues> = async (data) => {
     try {
       await updateBook({ id: book._id, ...data }).unwrap();
       form.reset();
+      setOpen(false);
       console.log("Book updated successfully");
     } catch (err) {
       console.error("Update failed:", err);
@@ -62,7 +80,7 @@ const onSubmit: SubmitHandler<BookFormValues> = async (data) => {
 
   return (
     <>
-      <Dialog>
+      <Dialog open={open} onOpenChange={handleOpen}>
       
         <DialogTrigger asChild>
           <Button  variant="link" className="p-0 text-green-500">            
