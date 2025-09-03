@@ -2,7 +2,7 @@ import { useState } from "react"
 import { Link } from "react-router-dom"
 import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuTrigger, NavigationMenuContent, NavigationMenuLink } from "@/components/ui/navigation-menu"
 import { ModeToggle } from "@/components/mode-toggle"
-import { CircleCheckIcon, CircleHelpIcon, CircleIcon, Menu, X } from "lucide-react"
+import { Bell, CircleCheckIcon, CircleHelpIcon, CircleIcon, Menu, X } from "lucide-react"
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -119,6 +119,7 @@ export default function Navbar() {
               {/* Add more items as needed */}
             </NavigationMenuList>
           </NavigationMenu>
+          <Bell />
           <ModeToggle />
         </div>
 
