@@ -50,16 +50,11 @@ export default function AddBook() {
     <Dialog open={open} onOpenChange={setOpen}>
       
         <DialogTrigger asChild>
-          <Button >Add Task</Button>
+          <Button >Add Book</Button>
         </DialogTrigger>
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
-            <DialogTitle>Add Task</DialogTitle>
-            <DialogDescription className="sr-only">
-              Make changes to your profile here. Click save when you&apos;re
-              done.
-            </DialogDescription>
-           
+            <DialogTitle>Add Book</DialogTitle>   
           </DialogHeader>
           
         <Form {...form}>
@@ -118,6 +113,18 @@ export default function AddBook() {
             />
             <FormField
                 control={form.control}
+                name="copies"
+                render={({ field }) => (
+                <FormItem >
+                    <FormLabel className="mt-2">Copies</FormLabel>
+                    <FormControl>
+                    <Input {...field} />
+                    </FormControl>                    
+                </FormItem>
+                )}
+            />
+            <FormField
+                control={form.control}
                 name="description"
                 render={({ field }) => (
                 <FormItem>
@@ -128,19 +135,7 @@ export default function AddBook() {
                 </FormItem>
                 )}
             />
-            <FormField
-                control={form.control}
-                name="copies"
-                render={({ field }) => (
-                <FormItem >
-                    <FormLabel className="mt-2">Copies</FormLabel>
-                    <FormControl>
-                    <Input {...field} />
-                    </FormControl>
-                    
-                </FormItem>
-                )}
-            />
+        
             
                 
 

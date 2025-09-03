@@ -89,13 +89,7 @@ const onSubmit: SubmitHandler<BookFormValues> = async (data) => {
         </DialogTrigger>
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
-            <DialogTitle>Update Book list</DialogTitle>
-            <DialogDescription className="sr-only">
-              Make changes to your profile here. Click save when you&apos;re
-              done.
-              
-            </DialogDescription>
-           
+            <DialogTitle>Update Book</DialogTitle>  
           </DialogHeader>
           
         <Form {...form}>
@@ -120,7 +114,7 @@ const onSubmit: SubmitHandler<BookFormValues> = async (data) => {
                 name="author"
                 render={({ field }) => (
                 <FormItem>
-                    <FormLabel>Author</FormLabel>
+                    <FormLabel className="mt-2">Author</FormLabel>
                     <FormControl>
                     <Input {...field} />
                     </FormControl>
@@ -133,7 +127,7 @@ const onSubmit: SubmitHandler<BookFormValues> = async (data) => {
                 name="genre"
                 render={({ field }) => (
                 <FormItem>
-                    <FormLabel>Genre</FormLabel>
+                    <FormLabel className="mt-2">Genre</FormLabel>
                     <FormControl>
                     <Input {...field} />
                     </FormControl>
@@ -146,7 +140,7 @@ const onSubmit: SubmitHandler<BookFormValues> = async (data) => {
                 name="isbn"
                 render={({ field }) => (
                 <FormItem>
-                    <FormLabel>ISBN</FormLabel>
+                    <FormLabel className="mt-2">ISBN</FormLabel>
                     <FormControl>
                     <Input {...field} />
                     </FormControl>
@@ -159,7 +153,7 @@ const onSubmit: SubmitHandler<BookFormValues> = async (data) => {
                 name="copies"
                 render={({ field }) => (
                 <FormItem>
-                    <FormLabel>Copies</FormLabel>
+                    <FormLabel className="mt-2">Copies</FormLabel>
                     <FormControl>
                     <Input {...field} />
                     </FormControl>
@@ -172,21 +166,18 @@ const onSubmit: SubmitHandler<BookFormValues> = async (data) => {
                 name="description"
                 render={({ field }) => (
                 <FormItem>
-                    <FormLabel>Discription</FormLabel>
+                    <FormLabel className="mt-2">Discription</FormLabel>
                     <FormControl>                    
                     <Textarea  {...field} placeholder="Type your discription here." />
                     </FormControl>                    
                 </FormItem>
                 )}
             />
-            
-
-
             <DialogFooter className="mt-4">
                 <DialogClose asChild>
                 <Button variant="outline">Cancel</Button>
                 </DialogClose>
-                <Button type="submit">Submit</Button>
+                <Button type="submit">Save Change</Button>
             </DialogFooter>
             </form>
         </Form>
