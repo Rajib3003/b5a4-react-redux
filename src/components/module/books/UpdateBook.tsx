@@ -1,6 +1,7 @@
+
 import { Button } from "@/components/ui/button";
 
-import { Dialog, DialogClose, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Form, FormControl, FormField, FormItem, FormLabel } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 
@@ -90,6 +91,10 @@ const onSubmit: SubmitHandler<BookFormValues> = async (data) => {
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
             <DialogTitle>Update Book</DialogTitle>  
+            <DialogDescription>
+              Make changes to your profile here. Click save when you&apos;re
+              done.
+            </DialogDescription>
           </DialogHeader>
           
         <Form {...form}>
@@ -175,9 +180,9 @@ const onSubmit: SubmitHandler<BookFormValues> = async (data) => {
             />
             <DialogFooter className="mt-4">
                 <DialogClose asChild>
-                <Button variant="outline">Cancel</Button>
+                <Button variant="outline" className='cursor-pointer'>Cancel</Button>
                 </DialogClose>
-                <Button type="submit">Save Change</Button>
+                <Button type="submit" className='cursor-pointer bg-blue-500 hover:bg-blue-600 text-white'>Save Change</Button>
             </DialogFooter>
             </form>
         </Form>

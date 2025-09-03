@@ -1,6 +1,7 @@
 
+
 import { Button } from '@/components/ui/button'
-import { Dialog, DialogClose, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
+import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
 import { Form, FormControl, FormField, FormItem, FormLabel } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
@@ -50,11 +51,15 @@ export default function AddBook() {
     <Dialog open={open} onOpenChange={setOpen}>
       
         <DialogTrigger asChild>
-          <Button >Add Book</Button>
+          <Button className='cursor-pointer bg-blue-500 hover:bg-blue-600 text-white' >Add Book</Button>
         </DialogTrigger>
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
-            <DialogTitle>Add Book</DialogTitle>   
+            <DialogTitle >Add Book</DialogTitle> 
+            <DialogDescription>
+              Make changes to your profile here. Click save when you&apos;re
+              done.
+            </DialogDescription> 
           </DialogHeader>
           
         <Form {...form}>
@@ -141,9 +146,9 @@ export default function AddBook() {
 
             <DialogFooter className="mt-4">
                 <DialogClose asChild>
-                <Button variant="outline">Cancel</Button>
+                <Button variant="outline" className='cursor-pointer'>Cancel</Button>
                 </DialogClose>
-                <Button type="submit">Submit</Button>
+                <Button type="submit" className='cursor-pointer bg-blue-500 hover:bg-blue-600 text-white'>Submit</Button>
             </DialogFooter>
             </form>
         </Form>

@@ -23,7 +23,7 @@ export default function Books() {
   return (
     <div className="container max-w-7xl mx-auto  max-w-5xl bg-white">  
       <div className="flex items-center justify-between mb-5 p-4 bg-white rounded-lg shadow-md mt-4 bg-white dark:bg-gray-800">
-        <h1 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">Tasks</h1>
+        <h1 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">All Books list</h1>
         <div></div>
         <AddBook />
       </div>

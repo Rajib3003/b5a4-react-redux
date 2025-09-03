@@ -6,6 +6,7 @@ import { CircleCheckIcon, CircleHelpIcon, CircleIcon, Menu, X } from "lucide-rea
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [withIconOpen, setWithIconOpen] = useState(false);
 
   return (
     // <header className="sticky top-0 z-50 bg-white shadow-md dark:bg-black">
@@ -18,7 +19,7 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 w-full bg-white shadow-md dark:bg-black">
   {/* Full width background */}
 
-  <div className="max-w-7xl mx-auto flex items-center justify-between h-20 px-5">
+  <div className="max-w-7xl mx-auto flex items-center justify-between h-20">
     {/* Logo */}
     <Link
       to="/"
@@ -33,11 +34,11 @@ export default function Navbar() {
             <NavigationMenuList>                
               <NavigationMenuItem>
                 <NavigationMenuLink asChild className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded">
-                  <Link to="/"><div className="font-medium">Home</div></Link>
+                  <Link to="/"><div className="text-base font-bold">Home</div></Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuTrigger>List</NavigationMenuTrigger>
+                <NavigationMenuTrigger className="text-base font-bold">List</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid w-[200px] gap-4">
                     <li>
@@ -61,7 +62,7 @@ export default function Navbar() {
                 </NavigationMenuContent>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuTrigger>Simple</NavigationMenuTrigger>
+                <NavigationMenuTrigger className="text-base font-bold">Simple</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid w-[200px] gap-4">
                     <li>
@@ -78,14 +79,24 @@ export default function Navbar() {
                   </ul>
                 </NavigationMenuContent>
               </NavigationMenuItem>
-              <NavigationMenuItem>
+              
+            </NavigationMenuList>
+          </NavigationMenu>
+        </div>
+        <div className="hidden md:flex">
+          
+          <NavigationMenu viewport={false}>
+            <NavigationMenuList>                
+              
+              <NavigationMenuItem >
                 <NavigationMenuTrigger>With Icon</NavigationMenuTrigger>
-                <NavigationMenuContent>
+                <NavigationMenuContent className="absolute right-0 origin-top-right">
                   <ul className="grid w-[200px] gap-4">
                     <li>
                       <NavigationMenuLink asChild>
                         <Link to="#" className="flex-row items-center gap-2">
                           <CircleHelpIcon />
+                          
                           Backlog
                         </Link>
                       </NavigationMenuLink>
@@ -108,10 +119,11 @@ export default function Navbar() {
               {/* Add more items as needed */}
             </NavigationMenuList>
           </NavigationMenu>
+          <ModeToggle />
         </div>
 
         {/* Mode Toggle */}
-        <ModeToggle />
+        {/* <ModeToggle /> */}
 
         {/* Mobile Menu Button */}
         <div className="md:hidden">
@@ -128,33 +140,55 @@ export default function Navbar() {
       {mobileOpen && (
         <div className="md:hidden bg-white dark:bg-black shadow-lg p-4">
           <ul className="flex flex-col gap-4">
+            {/* With Icon menu */}
             <li>
-              <Link
-                to="/borrow"
-                onClick={() => setMobileOpen(false)}
-                className="text-lg font-medium text-gray-800 dark:text-gray-200"
+              <button
+                onClick={() => setWithIconOpen(!withIconOpen)}
+                className="flex justify-between items-center w-full text-lg font-medium text-gray-800 dark:text-gray-200"
               >
-                Borrow
-              </Link>
+                With Icon
+                <span className="ml-2">
+                  {withIconOpen ? "▲" : "▼"}
+                </span>
+              </button>
+
+              {withIconOpen && (
+                <ul className="flex flex-col gap-2 mt-2 ml-4">
+                  <li>
+                    <Link
+                      to="#"
+                      onClick={() => setMobileOpen(false)}
+                      className="flex items-center gap-2 text-gray-700 dark:text-gray-300"
+                    >
+                      <CircleHelpIcon />
+                      Backlog
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="#"
+                      onClick={() => setMobileOpen(false)}
+                      className="flex items-center gap-2 text-gray-700 dark:text-gray-300"
+                    >
+                      <CircleIcon />
+                      To Do
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="#"
+                      onClick={() => setMobileOpen(false)}
+                      className="flex items-center gap-2 text-gray-700 dark:text-gray-300"
+                    >
+                      <CircleCheckIcon />
+                      Done
+                    </Link>
+                  </li>
+                </ul>
+              )}
             </li>
-            <li>
-              <Link
-                to="/books"
-                onClick={() => setMobileOpen(false)}
-                className="text-lg font-medium text-gray-800 dark:text-gray-200"
-              >
-                Books
-              </Link>
-            </li>
-            {/* <li>
-              <Link
-                to="/components"
-                onClick={() => setMobileOpen(false)}
-                className="text-lg font-medium text-gray-800 dark:text-gray-200"
-              >
-                Components
-              </Link>
-            </li> */}
+
+            {/* Add more mobile menu items here */}
           </ul>
         </div>
       )}

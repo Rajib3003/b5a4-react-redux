@@ -26,7 +26,7 @@ export default function BookCard({book}:{book:IBook}) {
             <span className="ms-2">{book.title}</span>
           </CardTitle> */}
           <CardAction className="absolute top-1 right-1 flex items-center p-0">  
-            <SingleBookDetails bookId={book._id} />         
+            <SingleBookDetails book={book} />         
             <UpdateBook book={book} /> 
             {/* <Button onClick={() => deleteBook(book._id)} variant="link" className="p-0 text-red-500  cursor-pointer" >
               <Trash2  />            
