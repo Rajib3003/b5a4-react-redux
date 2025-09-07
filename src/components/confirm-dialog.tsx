@@ -12,6 +12,8 @@ type ConfirmDialogProps = {
   confirmText?: string
   cancelText?: string
   onConfirm?: () => void
+  open?: boolean // ✅ add this
+  onOpenChange?: (open: boolean) => void // ✅ add this
 }
 
 export function ConfirmDialog({

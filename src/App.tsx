@@ -10,11 +10,18 @@ function App() {
   return (
     <>
     
-    {/* <div className="container max-w-7xl mx-auto  max-w-5xl bg-white"> */}
-     <Navbar />
-     <Outlet />
-     <Footer />
-    {/* </div> */}
+    <div className="flex flex-col min-h-screen">
+     {/* Navbar */}
+    <Navbar />
+
+    {/* Main content */}
+    <main className="flex-1">
+      <Outlet />
+    </main>
+
+    {/* Footer */}
+    <Footer />
+    </div>
     </>
     
   )

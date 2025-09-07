@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
@@ -31,6 +32,7 @@ export default function BorrowBook({book}:IProps) {
     const [calendarOpen, setCalendarOpen] = useState(false);
 
   const [date, setDate] = useState<Date | undefined>(undefined)
+//   const [showDialog, setShowDialog] = useState(false);
 
   const [borrowBook] = useBorrowBookMutation();
 
@@ -40,7 +42,7 @@ export default function BorrowBook({book}:IProps) {
     const form = useForm<IBorrow>({
         defaultValues: {      
              bookId: book._id || "",
-             quantity: 1,
+             quantity: 0,
              dueDate: new Date(),       
         },
         
@@ -81,7 +83,6 @@ const onSubmit: SubmitHandler<IBorrow> = async (data) => {
     dueDate: new Date(data.dueDate).toISOString().split("T")[0], // format "yyyy-MM-dd"
   };
 
-  console.log("Borrow Payload:", payload);
 
   try {
     await borrowBook(payload).unwrap();
@@ -125,10 +126,9 @@ const onSubmit: SubmitHandler<IBorrow> = async (data) => {
                 control={form.control}
                 name="bookId"
                 render={({ field }) => (
-                <FormItem >
-                    <FormLabel className="mt-2">Book Id</FormLabel>
+                <FormItem >                    
                     <FormControl>
-                    <Input {...field} readOnly />
+                    <Input {...field} readOnly type="hidden" />
                     </FormControl>
                     
                 </FormItem>
@@ -144,14 +144,22 @@ const onSubmit: SubmitHandler<IBorrow> = async (data) => {
                 <FormItem >
                     <FormLabel className="mt-2">Quantity</FormLabel>
                     <FormControl>
-                    <Input {...field} />
-                    </FormControl>                    
+                        <Input {...field} type="number"
+                            value={field.value || ""}
+                            onChange={(e) => {
+                            const val = Number(e.target.value);
+                            if (val > book.copies) {             
+                            return; 
+                            }
+                            field.onChange(val);
+                        }} />
+                    </FormControl>                      
                 </FormItem>
                 )}
             />
 
            <div className="flex flex-col gap-3">
-                <Label htmlFor="date" className="px-1">
+                <Label htmlFor="date" className="px-1 mt-2">
                     Due Date
                 </Label>
                 <Popover open={calendarOpen} onOpenChange={setCalendarOpen}>
