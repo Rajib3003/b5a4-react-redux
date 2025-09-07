@@ -8,7 +8,7 @@ import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectVa
 import { Textarea } from '@/components/ui/textarea'
 import { useAddBookMutation } from '@/redux/api/baseApi'
 import type { IBook } from '@/types'
-
+import toast from "react-hot-toast";
 import { useState } from 'react'
 import { useForm, type FieldValues, type SubmitHandler } from 'react-hook-form'
 
@@ -44,9 +44,23 @@ export default function AddBook() {
         // });
         // const result = await res.json();
         // console.log("Success:", result);
-        await addBook(data as IBook);
-        form.reset();
-        setOpen(false);
+        // await addBook(data as IBook);
+        // form.reset();
+        // setOpen(false);
+
+          try {
+    await addBook(data as IBook).unwrap(); 
+    toast.success("Book added successfully!", {
+        duration: 8000, 
+        });
+            form.reset();
+            setOpen(false);
+        } catch (err) {
+            toast.error("Failed to add book!", {
+        duration: 8000, 
+    });
+    console.error("Error adding book:", err);
+  }
     }
   return (
     <Dialog open={open} onOpenChange={setOpen}>

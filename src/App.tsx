@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom"
 import Navbar from "./components/layout/Navbar"
 import Footer from "./components/layout/Footer"
+import { Toaster } from "react-hot-toast";
 // import { Button } from "./components/ui/button"
 
 
@@ -16,6 +17,7 @@ function App() {
 
     {/* Main content */}
     <main className="flex-1">
+      <Toaster position="top-right" reverseOrder={false} />
       <Outlet />
     </main>
 

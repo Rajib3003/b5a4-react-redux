@@ -2,7 +2,7 @@ import { useState } from "react"
 import { Link } from "react-router-dom"
 import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuTrigger, NavigationMenuContent, NavigationMenuLink } from "@/components/ui/navigation-menu"
 import { ModeToggle } from "@/components/mode-toggle"
-import { Bell, CircleCheckIcon, CircleHelpIcon, CircleIcon, Menu, X } from "lucide-react"
+import {  CircleCheckIcon, CircleHelpIcon, CircleIcon, Menu, X } from "lucide-react"
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -38,42 +38,44 @@ export default function Navbar() {
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-base font-bold">Borrow</NavigationMenuTrigger>
+                <NavigationMenuTrigger className="text-base font-bold">Book</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid w-[200px] gap-4">
                     <li>
                       <NavigationMenuLink asChild>
-                        <Link to="/borrow">
-                          <div className="font-medium">Borrow Book</div>   
-                        </Link>
+                        <Link to="#">Add Book</Link>
                       </NavigationMenuLink>
                       <NavigationMenuLink asChild>
-                        <Link to="/borrowSammary">
-                          <div className="font-medium">Summary Borrow Book List</div>                  
-                        </Link>
-                      </NavigationMenuLink>                     
+                        <Link to="#">Update Book</Link>
+                      </NavigationMenuLink>
+                      {/* <NavigationMenuLink asChild>
+                        <Link to="#">Blocks</Link>
+                      </NavigationMenuLink> */}
                     </li>
                   </ul>
                 </NavigationMenuContent>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-base font-bold">Simple</NavigationMenuTrigger>
+                <NavigationMenuTrigger className="text-base font-bold">Borrow</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid w-[200px] gap-4">
                     <li>
                       <NavigationMenuLink asChild>
-                        <Link to="#">Components</Link>
-                      </NavigationMenuLink>
+                        <Link to="/borrowSammary">
+                          <div className="font-medium">Summary Borrow Book List</div>                  
+                        </Link>
+                      </NavigationMenuLink> 
                       <NavigationMenuLink asChild>
-                        <Link to="#">Documentation</Link>
+                        <Link to="/borrow">
+                          <div className="font-medium">Borrow Book</div>   
+                        </Link>
                       </NavigationMenuLink>
-                      <NavigationMenuLink asChild>
-                        <Link to="#">Blocks</Link>
-                      </NavigationMenuLink>
+                                          
                     </li>
                   </ul>
                 </NavigationMenuContent>
               </NavigationMenuItem>
+              
               
             </NavigationMenuList>
           </NavigationMenu>
@@ -83,7 +85,7 @@ export default function Navbar() {
           <NavigationMenu viewport={false}>
             <NavigationMenuList>                
               
-              <NavigationMenuItem >
+              {/* <NavigationMenuItem >
                 <NavigationMenuTrigger>With Icon</NavigationMenuTrigger>
                 <NavigationMenuContent className="absolute right-0 origin-top-right">
                   <ul className="grid w-[200px] gap-4">
@@ -110,11 +112,11 @@ export default function Navbar() {
                     </li>
                   </ul>
                 </NavigationMenuContent>
-              </NavigationMenuItem>
+              </NavigationMenuItem> */}
               {/* Add more items as needed */}
             </NavigationMenuList>
           </NavigationMenu>
-          <Bell />
+          {/* <Bell /> */}
           <ModeToggle />
         </div>
 

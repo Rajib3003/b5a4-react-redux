@@ -12,6 +12,7 @@ import { ChevronDownIcon } from "lucide-react";
 import { useState } from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
   interface IProps {
     book: IBook;
@@ -88,9 +89,15 @@ const onSubmit: SubmitHandler<IBorrow> = async (data) => {
     await borrowBook(payload).unwrap();
     form.reset();
     setOpen(false);
+    toast.success("Borrow Book successfully!", {
+        duration: 8000, 
+        });
     navigate("/borrowSammary");
   } catch (err) {
     console.error("Borrow failed:", err);
+    toast.error("Failed to borrow book!", {
+        duration: 8000, 
+    });
   }
 };
 

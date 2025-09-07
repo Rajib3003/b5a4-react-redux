@@ -15,7 +15,7 @@ import type { IBook } from "@/types";
 import { RefreshCw } from "lucide-react";
 import { useState } from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
-
+import toast from "react-hot-toast";
   interface IProps {
     book: IBook;
 }
@@ -74,9 +74,14 @@ const onSubmit: SubmitHandler<BookFormValues> = async (data) => {
       await updateBook({ id: book._id, ...data }).unwrap();
       form.reset();
       setOpen(false);
-      console.log("Book updated successfully");
+      toast.success("Book update successfully!", {
+        duration: 8000, 
+        });
     } catch (err) {
       console.error("Update failed:", err);
+      toast.error("Failed to update book!", {
+        duration: 8000, 
+    });
     }
   };
 
