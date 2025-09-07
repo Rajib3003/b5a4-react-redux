@@ -48,8 +48,8 @@ export default function Navbar() {
                         </Link>
                       </NavigationMenuLink>
                       <NavigationMenuLink asChild>
-                        <Link to="/books">
-                          <div className="font-medium">Documentation</div>                  
+                        <Link to="/borrowSammary">
+                          <div className="font-medium">Summary Borrow Book List</div>                  
                         </Link>
                       </NavigationMenuLink>
                       <NavigationMenuLink asChild>

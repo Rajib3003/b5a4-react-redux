@@ -1,4 +1,5 @@
 import App from "@/App";
+import BorrowSummary from "@/components/module/borrows/BorrowSummary";
 import Books from "@/pages/Books";
 import Borrow from "@/pages/Borrow";
 import { createBrowserRouter } from "react-router-dom";
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
             {
                 path: "borrow",
                 element: <Borrow />
+            },
+            {
+                path: "borrowSammary",
+                element: <BorrowSummary />
             },
             
             

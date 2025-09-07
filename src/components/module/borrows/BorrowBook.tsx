@@ -88,7 +88,7 @@ const onSubmit: SubmitHandler<IBorrow> = async (data) => {
     await borrowBook(payload).unwrap();
     form.reset();
     setOpen(false);
-    navigate("/borrow");
+    navigate("/borrowSammary");
   } catch (err) {
     console.error("Borrow failed:", err);
   }
