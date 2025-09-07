@@ -9,3 +9,10 @@ export interface IBook {
     description: string;
     available: boolean;
 }
+
+export interface IBorrow {
+    _id?: string;
+    bookId: string;
+    quantity: number;
+    dueDate: Date;   
+}

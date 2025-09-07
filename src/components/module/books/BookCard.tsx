@@ -7,6 +7,7 @@ import { Bell, Trash2 } from 'lucide-react'
 import UpdateBook from './UpdateBook'
 import SingleBookDetails from './SingleBookDetails'
 import { ConfirmDialog } from '@/components/confirm-dialog'
+import BorrowBook from '../borrows/BorrowBook'
 
 
 
@@ -20,7 +21,7 @@ export default function BookCard({book}:{book:IBook}) {
 
   return (
     <>
-      <Card className="w-full max-w-sm relative transition-transform transform hover:scale-102 hover:shadow-lg">
+      <Card className="w-full max-w-sm relative transition-transform transform hover:scale-101 hover:shadow-lg">
   <CardHeader>
     <CardAction className="absolute top-1 right-1 flex items-center p-0">
       {/* Copies Badge with Bell */}
@@ -83,7 +84,7 @@ export default function BookCard({book}:{book:IBook}) {
   </CardContent>
 
   <div className="p-4 border-t flex justify-center">
-    <Button
+    {/* <Button
       disabled={book.copies === 0}
       className={`px-4 py-2 w-full rounded ${
         book.copies === 0
@@ -92,7 +93,9 @@ export default function BookCard({book}:{book:IBook}) {
       }`}
     >
       Borrow
-    </Button>
+    </Button> */}
+    <br />
+    <BorrowBook book={book} />
   </div>
 </Card>
 

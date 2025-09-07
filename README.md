@@ -67,3 +67,18 @@ export default tseslint.config([
   },
 ])
 ```
+
+
+<!-- borrow book page create korte hobe. borrow button a click korle form asbe. 
+1. book name dropdow a asbe 
+2. copies dibe (je number input dibe tar theke jodi kom thake ta hole form submit hobe na alert dite hobe)
+3. due date add korte hobe
+4. form sucesse hoile sucessefuly message show korte hobe
+5. sucesse hoile borrow summary page redirect page pathaite hoibo.
+
+borrow summery page : 
+summery page a table akare show korabo click korle details gulo dekhabe. 
+book title,isbn, quantity , header a dekhabe click korle details dekhabe
+
+
+ -->
