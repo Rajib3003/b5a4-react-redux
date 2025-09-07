@@ -25,6 +25,7 @@ export default function BorrowSummary() {
             <thead>
               <tr className="bg-gray-100">
                 <th className="border px-4 py-2 text-left">Book Title</th>
+                <th className="border px-4 py-2 text-left">ISBN</th>
                 <th className="border px-4 py-2 text-left">Total Quantity</th>
               </tr>
             </thead>
@@ -35,6 +36,7 @@ export default function BorrowSummary() {
                   className="hover:bg-gray-50"
                 >
                   <td className="border px-4 py-2">{borrow.book.title}</td>
+                  <td className="border px-4 py-2">{borrow.book.isbn}</td>
                   <td className="border px-4 py-2">{borrow.totalQuantity}</td>
                 </tr>
               ))}

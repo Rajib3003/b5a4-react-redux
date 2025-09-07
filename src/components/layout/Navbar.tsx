@@ -38,7 +38,7 @@ export default function Navbar() {
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-base font-bold">List</NavigationMenuTrigger>
+                <NavigationMenuTrigger className="text-base font-bold">Borrow</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid w-[200px] gap-4">
                     <li>
@@ -51,12 +51,7 @@ export default function Navbar() {
                         <Link to="/borrowSammary">
                           <div className="font-medium">Summary Borrow Book List</div>                  
                         </Link>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink asChild>
-                        <Link to="#">
-                          <div className="font-medium">Blog</div>                   
-                        </Link>
-                      </NavigationMenuLink>
+                      </NavigationMenuLink>                     
                     </li>
                   </ul>
                 </NavigationMenuContent>

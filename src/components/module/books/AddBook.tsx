@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button'
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
 import { Form, FormControl, FormField, FormItem, FormLabel } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
+import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Textarea } from '@/components/ui/textarea'
 import { useAddBookMutation } from '@/redux/api/baseApi'
 import type { IBook } from '@/types'
@@ -90,7 +91,7 @@ export default function AddBook() {
                 </FormItem>
                 )}
             />
-            <FormField
+            {/* <FormField
                 control={form.control}
                 name="genre"
                 render={({ field }) => (
@@ -102,7 +103,36 @@ export default function AddBook() {
                     
                 </FormItem>
                 )}
+            /> */}
+            <FormField
+                control={form.control}
+                name="genre"
+                render={({ field }) => (
+                <FormItem>
+                <FormLabel className="mt-2">Genre</FormLabel>
+                <Select onValueChange={field.onChange} defaultValue={field.value}>
+                    <FormControl>
+                    <SelectTrigger className="w-full">
+                        <SelectValue placeholder="Select a Genre" defaultValue={"FICTION"} />
+                    </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                        <SelectGroup>
+                        {/* <SelectLabel>Fruits</SelectLabel> */}
+                        <SelectItem value="FICTION">FICTION</SelectItem>
+                        <SelectItem value="NON_FICTION">NON_FICTION</SelectItem>
+                        <SelectItem value="SCIENCE">SCIENCE</SelectItem>
+                        <SelectItem value="HISTORY">HISTORY</SelectItem>
+                        <SelectItem value="BIOGRAPHY">BIOGRAPHY</SelectItem>
+                        <SelectItem value="FANTASY">FANTASY</SelectItem>
+                        </SelectGroup>
+                    </SelectContent>
+                </Select>             
+                </FormItem>
+                )}
             />
+
+            
             <FormField
                 control={form.control}
                 name="isbn"
