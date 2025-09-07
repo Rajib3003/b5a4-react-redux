@@ -10,6 +10,7 @@ import type { IBook, IBorrow } from "@/types";
 import { ChevronDownIcon } from "lucide-react";
 import { useState } from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
   interface IProps {
     book: IBook;
@@ -32,6 +33,8 @@ export default function BorrowBook({book}:IProps) {
   const [date, setDate] = useState<Date | undefined>(undefined)
 
   const [borrowBook] = useBorrowBookMutation();
+
+   const navigate = useNavigate();
 
 
     const form = useForm<IBorrow>({
@@ -71,6 +74,7 @@ export default function BorrowBook({book}:IProps) {
 // };
 
 const onSubmit: SubmitHandler<IBorrow> = async (data) => {
+   
     const payload = {
     book: data.bookId,
     quantity: Number(data.quantity), // convert to number
@@ -83,6 +87,7 @@ const onSubmit: SubmitHandler<IBorrow> = async (data) => {
     await borrowBook(payload).unwrap();
     form.reset();
     setOpen(false);
+    navigate("/borrow");
   } catch (err) {
     console.error("Borrow failed:", err);
   }
